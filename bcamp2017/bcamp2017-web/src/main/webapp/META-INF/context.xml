@@ -1,0 +1,27 @@
+<Context>
+  <Resource
+    name="jdbc/postgres_test"
+    auth="Container"
+    type="javax.sql.DataSource"
+    driverClassName="org.postgresql.Driver"
+    url="jdbc:postgresql://127.0.0.1:5432/test"
+    username="test"
+    password="test"
+    maxActive="20"
+    maxIdle="10"
+    maxWait="-1" />
+  <Resource
+    name="BeanManager"
+    auth="Container"
+    type="javax.enterprise.inject.spi.BeanManager"
+    factory="org.jboss.weld.resources.ManagerObjectFactory" />
+  <Realm
+    className="org.apache.catalina.realm.DataSourceRealm"
+    dataSourceName="jdbc/postgres_test"
+    userTable="security.users"
+    userNameCol="user_name"
+    userCredCol="user_pass"
+    userRoleTable="security.user_roles"
+    roleNameCol="role_name" 
+    localDataSource="true"/>
+</Context>

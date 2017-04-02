@@ -1,0 +1,44 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.geometry.Insets?>
+<?import javafx.scene.control.Button?>
+<?import javafx.scene.control.ComboBox?>
+<?import javafx.scene.control.Label?>
+<?import javafx.scene.control.PasswordField?>
+<?import javafx.scene.control.TextField?>
+<?import javafx.scene.layout.ColumnConstraints?>
+<?import javafx.scene.layout.GridPane?>
+<?import javafx.scene.layout.RowConstraints?>
+<?import javafx.scene.layout.VBox?>
+
+<VBox xmlns="http://javafx.com/javafx/8.0.60" xmlns:fx="http://javafx.com/fxml/1" fx:controller="curs.controllers.RegisterScreenController">
+   <children>
+      <GridPane prefHeight="182.0" prefWidth="480.0">
+        <columnConstraints>
+          <ColumnConstraints hgrow="SOMETIMES" minWidth="10.0" prefWidth="100.0" />
+          <ColumnConstraints hgrow="SOMETIMES" minWidth="10.0" prefWidth="100.0" />
+        </columnConstraints>
+        <rowConstraints>
+          <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
+          <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
+          <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
+            <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
+            <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
+        </rowConstraints>
+         <children>
+            <Label prefHeight="17.0" prefWidth="170.0" text="Login Name" />
+            <Label text="Password" GridPane.rowIndex="1" />
+            <Label text="Confirm password" GridPane.rowIndex="2" />
+            <TextField fx:id="tLogin" GridPane.columnIndex="1" />
+            <PasswordField fx:id="tPassword" GridPane.columnIndex="1" GridPane.rowIndex="1" />
+            <PasswordField fx:id="tPasswordConfirm" onAction="#onRegister" GridPane.columnIndex="1" GridPane.rowIndex="2" />
+            <Button fx:id="bRegister" mnemonicParsing="false" onAction="#onRegister" prefHeight="25.0" prefWidth="478.0" text="Register" GridPane.columnSpan="2" GridPane.rowIndex="4" />
+            <ComboBox fx:id="tRole" prefHeight="25.0" prefWidth="235.0" GridPane.columnIndex="1" GridPane.rowIndex="3" />
+            <Label text="Role" GridPane.rowIndex="3" />
+         </children>
+      </GridPane>
+   </children>
+   <padding>
+      <Insets bottom="10.0" left="10.0" right="10.0" top="20.0" />
+   </padding>
+</VBox>
