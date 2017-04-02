@@ -5,8 +5,8 @@
   <version>0.0.1-SNAPSHOT</version>
   <packaging>pom</packaging>
   <modules>
-    <module>web</module>
-    <module>jfx</module>
+    <module>bcamp2017-web</module>
+    <module>bcamp2017-jfx</module>
     <module>bcamp2017-common</module>
   </modules>
 </project>
