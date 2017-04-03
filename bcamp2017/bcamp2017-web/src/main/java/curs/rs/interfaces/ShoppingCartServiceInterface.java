@@ -7,6 +7,7 @@ import javax.ws.rs.GET;
 import javax.ws.rs.POST;
 import javax.ws.rs.Path;
 import javax.ws.rs.Produces;
+import javax.ws.rs.QueryParam;
 import javax.ws.rs.core.MediaType;
 
 import curs.model.Book;
@@ -23,7 +24,7 @@ public interface ShoppingCartServiceInterface {
 	@POST
 	@Path("/add/item")
 	@Consumes(MediaType.APPLICATION_JSON)
-	boolean addCartItem(Book pItem, int pQuantity);
+	boolean addCartItem(Book pItem,@QueryParam("q") int pQuantity);
 	
 	@POST
 	@Path("/cancel")
