@@ -2,6 +2,7 @@ package curs.interfaces;
 
 import java.io.Serializable;
 
+
 public interface ShoppingCartItemInterface extends Serializable {
 	Long getId();
 	ShoppingCartInterface getShoppingCart();
