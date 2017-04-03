@@ -1,6 +1,5 @@
 package curs.model;
-
-
+//
 public class SearchFilter {
 	private String mQuery;
 	private SearchType mType;
