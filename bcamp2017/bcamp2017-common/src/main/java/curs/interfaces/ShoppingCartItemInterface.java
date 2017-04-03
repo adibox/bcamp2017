@@ -1,6 +1,8 @@
 package curs.interfaces;
 
-public interface ShoppingCartItemInterface {
+import java.io.Serializable;
+
+public interface ShoppingCartItemInterface extends Serializable {
 	Long getId();
 	ShoppingCartInterface getShoppingCart();
 	BookInterface getBook();

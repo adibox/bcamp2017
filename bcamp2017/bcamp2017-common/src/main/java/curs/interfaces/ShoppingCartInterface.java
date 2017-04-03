@@ -1,9 +1,10 @@
 package curs.interfaces;
 
+import java.io.Serializable;
 import java.util.Collection;
 import java.util.Date;
 
-public interface ShoppingCartInterface {
+public interface ShoppingCartInterface extends Serializable {
 	static enum Status {
 		OPENED,FINALIZED,CANCELLED;
 	}
