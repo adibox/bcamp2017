@@ -35,7 +35,7 @@ public class ValidationUtilsTest {
 	public void testValidatePasswordInvalidFormat() throws ValidationException {
 		exception.expect(ValidationException.class);
 		exception.expectMessage("letters AND digits");
-		ValidationUtils.validatePassword("012");
+		ValidationUtils.validatePassword("012345678");
 	}
 	
 }
