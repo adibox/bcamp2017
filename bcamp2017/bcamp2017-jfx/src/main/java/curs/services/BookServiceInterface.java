@@ -1,8 +1,10 @@
 package curs.services;
 
+import java.util.Collection;
 import java.util.List;
 
 import curs.model.Book;
+import curs.model.SearchFilter;
 import retrofit.Call;
 import retrofit.http.Body;
 import retrofit.http.DELETE;
@@ -49,4 +51,12 @@ public interface BookServiceInterface {
 	})
 	@DELETE("books/delete")
 	public Call<Book> deleteBook(@Query("book_id") Long pBookId);
+	
+	@Headers({
+		"Accept: application/json",
+		"Content-Type: application/json"
+	})
+	@POST("books/search")
+	public Call<Collection<Book>> search(@Body SearchFilter pFilter);
+
 }

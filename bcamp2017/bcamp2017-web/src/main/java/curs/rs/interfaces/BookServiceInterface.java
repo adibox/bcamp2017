@@ -1,5 +1,6 @@
 package curs.rs.interfaces;
 
+import java.util.Collection;
 import java.util.List;
 
 import javax.ws.rs.Consumes;
@@ -14,6 +15,8 @@ import javax.ws.rs.QueryParam;
 import javax.ws.rs.core.MediaType;
 
 import curs.model.Book;
+import curs.model.SearchFilter;
+import curs.model.SearchType;
 
 @Path("/books")
 public interface BookServiceInterface {
@@ -40,4 +43,11 @@ public interface BookServiceInterface {
 	@DELETE
 	@Path("delete")
 	public Book deleteBook(@QueryParam("book_id") Long pBookId);
+	
+	@POST
+	@Path("search")
+	@Produces(MediaType.APPLICATION_JSON)
+	@Consumes(MediaType.APPLICATION_JSON)
+	public Collection<Book> search(SearchFilter pFilter);
+
 }
