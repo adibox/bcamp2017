@@ -1,5 +1,6 @@
 package curs.test;
 
+import java.util.Collection;
 import java.util.List;
 
 import javax.ws.rs.core.Response;
@@ -9,6 +10,7 @@ import org.junit.BeforeClass;
 import org.junit.Test;
 
 import curs.model.Book;
+import curs.model.SearchFilter;
 import curs.rs.interfaces.BookServiceInterface;
 
 import static org.junit.Assert.*;
@@ -44,6 +46,12 @@ public class InMemoryRestTest {
 
 		@Override
 		public Book deleteBook(Long pBookId) {
+			// TODO Auto-generated method stub
+			return null;
+		}
+
+		@Override
+		public Collection<Book> search(SearchFilter pFilter) {
 			// TODO Auto-generated method stub
 			return null;
 		}

@@ -1,5 +1,6 @@
 package curs.dao;
 
+import java.util.Collection;
 import java.util.List;
 
 import javax.enterprise.context.RequestScoped;
@@ -11,6 +12,8 @@ import javax.persistence.TypedQuery;
 
 import curs.cdi.Logging;
 import curs.model.Book;
+import curs.model.SearchFilter;
+import curs.model.SearchType;
 
 @RequestScoped
 @Logging
@@ -130,6 +133,27 @@ public class BookDAO {
 		return b;
 	}
 
+	public Collection<Book> search(SearchFilter pFilter) {
+		if (pFilter == null || pFilter.getQuery() == null || pFilter.getQuery().trim().isEmpty()) {
+			return getAllBooks();
+		}
+		String query = "%" + pFilter.getQuery().trim().toUpperCase() + "%";
+		if (SearchType.TITLE.equals(pFilter.getType())) {
+			TypedQuery<Book> q = mEM.createQuery("SELECT b FROM curs.model.Book b WHERE UPPER(b.mTitle) LIKE :query ORDER BY b.mTitle", Book.class);
+			q.setParameter("query", query);
+			return q.getResultList();
+		} else if (SearchType.AUTHOR.equals(pFilter.getType())) {
+			TypedQuery<Book> q = mEM.createQuery("SELECT b FROM curs.model.Book b WHERE UPPER(b.mAuthor) LIKE :query ORDER BY b.mAuthor", Book.class);
+			q.setParameter("query", query);
+			return q.getResultList();
+		} else {
+			TypedQuery<Book> q = mEM.createQuery("SELECT b FROM curs.model.Book b WHERE (UPPER(b.mAuthor) LIKE :query) OR (UPPER(b.mTitle) LIKE :query) ORDER BY b.mAuthor", Book.class);
+			q.setParameter("query", query);
+			return q.getResultList();
+		
+		}
+	}
+
 	public static void initData(EntityManager pEM) {
 		pEM.getTransaction().begin();
 		Query nq = pEM.createNativeQuery("DELETE FROM book");
@@ -161,4 +185,5 @@ public class BookDAO {
 		pEM.persist(b);
 		pEM.getTransaction().commit();
 	}
+
 }
